@@ -13,9 +13,10 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import com.tr.employeeproducts.data.CSVReader;
-import com.tr.employeeproducts.data.ComboBoxModifier;
-import com.tr.employeeproducts.data.MissingProductStringGenerator;
 import com.tr.employeeproducts.data.Record;
+import com.tr.employeeproducts.listcontroller.ComboBoxModifier;
+import com.tr.employeeproducts.listcontroller.ListController;
+import com.tr.employeeproducts.listcontroller.MissingProductStringGenerator;
 
 public class InterfaceGenerator {
 
@@ -24,10 +25,12 @@ public class InterfaceGenerator {
 	private JTextArea jTextArea1;
 	private JComboBox<String> cbox;
 	private Map<String, Record> employeeData;
+	private ListController controller;
 
 	// init interface as soon as class is declared
-	public InterfaceGenerator(Map<String, Record> employeeData) {
+	public InterfaceGenerator(Map<String, Record> employeeData, ListController controller) {
 		this.employeeData = employeeData;
+		this.controller = controller;
 		initComponents();
 	}
 
@@ -78,8 +81,7 @@ public class InterfaceGenerator {
 				AbstractListModel<String> model = new AbstractListModel<String>() {
 					
 					//Creates a ComboModifier that gets the employees missing the product selected in cbox
-					ComboBoxModifier newEmployeeList = new ComboBoxModifier();
-					List<String> updatednames = newEmployeeList.getParsedEmployeeList1(cboxvalue, employeeData);
+					List<String> updatednames = controller.getComboBoxList(cboxvalue);
 
 					@Override
 					public int getSize() {
@@ -121,55 +123,10 @@ public class InterfaceGenerator {
 		
 		String selectedName = (String) employeeSelectionList.getSelectedValue();
 		
-		//Gets copy of employee names and their product information
-		
 		//Formats and populates the text area
-		//This should use StringBuilder and it should be separated in its own method or class.
-		String fullProducts = "The employee has completed product knowledge for: \n\n";
-
-		try {
-
-			List<Boolean> bucketStatus = employeeData.get(selectedName).getBucketStatus();
-
-			if (bucketStatus.get(0) == true) {
-				fullProducts = fullProducts + "UltraTax, ";
-			}
-			if (bucketStatus.get(1) == true) {
-				fullProducts = fullProducts + "Tools, ";
-			}
-			if (bucketStatus.get(2) == true) {
-				fullProducts = fullProducts + "GoSystem Tax, ";
-			}
-			if (bucketStatus.get(3) == true) {
-				fullProducts = fullProducts + "Documents, ";
-			}
-			if (bucketStatus.get(4) == true) {
-				fullProducts = fullProducts + "Accounting CS, ";
-			}
-			if (bucketStatus.get(5) == true) {
-				fullProducts = fullProducts + "Practice CS, ";
-			}
-			if (bucketStatus.get(6) == true) {
-				fullProducts = fullProducts + "Onvio, ";
-			}
-			if (bucketStatus.get(7) == true) {
-				fullProducts = fullProducts + "Web Services, ";
-			}
-			if (bucketStatus.get(8) == true) {
-				fullProducts = fullProducts + "Customer Service, ";
-			}
-			fullProducts = fullProducts.substring(0, fullProducts.length() - 2) + "\n\n\n"; //removes punctuation from end of string
-			
-			//Creates a MissingProductString object to generate the missing product portion of the text area
-			MissingProductStringGenerator missingStringGenerator = new MissingProductStringGenerator();
-			String completeMissingString = missingStringGenerator.generateMissingString(employeeData.get(selectedName));
-			fullProducts = fullProducts + completeMissingString;
-
-			jTextArea1.setText(fullProducts);
-			
-		} catch (Exception e) {
-			// System.out.println(e);
-		}
+		String fullProducts = controller.getEmployeeProductsString(selectedName);
+		
+		jTextArea1.setText(fullProducts);
 
 	}
 

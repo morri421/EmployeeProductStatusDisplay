@@ -1,8 +1,10 @@
-package com.tr.employeeproducts.data;
+package com.tr.employeeproducts.listcontroller;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import com.tr.employeeproducts.data.Record;
 
 /**
  * Creates a list to replace the current employee selection list based on the

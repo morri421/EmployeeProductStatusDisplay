@@ -1,6 +1,8 @@
-package com.tr.employeeproducts.data;
+package com.tr.employeeproducts.listcontroller;
 
 import java.util.List;
+
+import com.tr.employeeproducts.data.Record;
 
 /**
  * This generates a string of missing products
@@ -18,8 +20,7 @@ public class MissingProductStringGenerator {
 			List<String> utMissingProducts = employeeRecord.getnullUTProducts();
 			stringForAllMissingProducts = stringForAllMissingProducts + "UltraTax-  "; //formats the missing products and adds it to a string that will be returned at end
 			for (String product : utMissingProducts) {
-				stringForAllMissingProducts = stringForAllMissingProducts + product + ", "
-						;
+				stringForAllMissingProducts = stringForAllMissingProducts + product + ", ";
 			}
 			stringForAllMissingProducts = stringForAllMissingProducts.substring(0, stringForAllMissingProducts.length()-2) + "\n";
 		}

@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Extracts employee supported product data from a CSV to be returned for other
@@ -30,7 +31,7 @@ public class CSVReader {
 		String csvFile = "DATA.csv";
 		String line = "";
 		String cvsSplitBy = ",";
-		Map<String, Record> EmployeeData = new <String, Record>HashMap();
+		Map<String, Record> EmployeeData = new <String, Record>TreeMap();
 
 		// Might want to use a stream here.
 		try (BufferedReader bReader = new BufferedReader(new FileReader(csvFile))) {
