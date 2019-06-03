@@ -1,4 +1,4 @@
-package com.tr.employeerecord;
+package com.tr.employeeproducts.data;
 
 
 import java.io.BufferedReader;
@@ -12,6 +12,18 @@ import java.util.Map;
  * program components
  */
 public class CSVReader {
+	
+	private static CSVReader instance;
+	//private static Map <String, Record> data = null;
+	
+	private CSVReader() {}
+	
+	public static CSVReader getEmployeeInformation() {
+		if (instance == null) {
+			instance = new CSVReader();
+		}
+		return instance;
+	}
 
 	public Map<String, Record> readCSV() {
 

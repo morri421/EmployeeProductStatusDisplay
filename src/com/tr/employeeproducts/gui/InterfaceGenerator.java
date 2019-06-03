@@ -1,4 +1,4 @@
-package com.tr.employeerecord;
+package com.tr.employeeproducts.gui;
 
 import net.miginfocom.swing.MigLayout;
 import java.awt.Dimension;
@@ -12,15 +12,22 @@ import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import com.tr.employeeproducts.data.CSVReader;
+import com.tr.employeeproducts.data.ComboBoxModifier;
+import com.tr.employeeproducts.data.MissingProductStringGenerator;
+import com.tr.employeeproducts.data.Record;
+
 public class InterfaceGenerator {
 
 	private JList<String> employeeSelectionList;
 	private JPanel jPanel1;
 	private JTextArea jTextArea1;
 	private JComboBox<String> cbox;
+	private Map<String, Record> employeeData;
 
 	// init interface as soon as class is declared
-	public InterfaceGenerator() {
+	public InterfaceGenerator(Map<String, Record> employeeData) {
+		this.employeeData = employeeData;
 		initComponents();
 	}
 
@@ -29,10 +36,6 @@ public class InterfaceGenerator {
 		jPanel1 = new JPanel();
 		employeeSelectionList = new JList<String>();
 		jTextArea1 = new JTextArea(13, 64);
-
-		// generate CSVReader object to generate employee data
-		CSVReader dataReader = new CSVReader();
-		Map<String, Record> employeeData = dataReader.readCSV(); // stores data in map, maybe change to SortedMap
 
 		// Sets a model for the employee list with action listener for when employee changes selection
 		employeeSelectionList.setModel(new AbstractListModel<String>() {
@@ -119,8 +122,6 @@ public class InterfaceGenerator {
 		String selectedName = (String) employeeSelectionList.getSelectedValue();
 		
 		//Gets copy of employee names and their product information
-		CSVReader getMap = new CSVReader();
-		Map<String, Record> employeeData = getMap.readCSV();
 		
 		//Formats and populates the text area
 		//This should use StringBuilder and it should be separated in its own method or class.

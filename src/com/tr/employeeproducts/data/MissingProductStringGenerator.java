@@ -1,4 +1,4 @@
-package com.tr.employeerecord;
+package com.tr.employeeproducts.data;
 
 import java.util.List;
 
