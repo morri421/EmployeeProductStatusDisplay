@@ -15,51 +15,54 @@ public class ListController {
 
 	public String getEmployeeProductsString(String employee) {
 		
-		//This should use StringBuilder and it should be separated in its own method or class.
-		String fullProducts = "The employee has completed product knowledge for: \n\n";
+		StringBuilder fullProducts = new StringBuilder("The employee has completed product knowledge for: \n\n");
 		
 		try {
 
 			List<Boolean> bucketStatus = employeeData.get(employee).getBucketStatus();
 
 			if (bucketStatus.get(0) == true) {
-				fullProducts = fullProducts + "UltraTax, ";
+				fullProducts.append("UltraTax, ");
 			}
 			if (bucketStatus.get(1) == true) {
-				fullProducts = fullProducts + "Tools, ";
+				fullProducts.append("Tools, ");
 			}
 			if (bucketStatus.get(2) == true) {
-				fullProducts = fullProducts + "GoSystem Tax, ";
+				fullProducts.append("GoSystem Tax, ");
 			}
 			if (bucketStatus.get(3) == true) {
-				fullProducts = fullProducts + "Documents, ";
+				fullProducts.append("Documents, ");
 			}
 			if (bucketStatus.get(4) == true) {
-				fullProducts = fullProducts + "Accounting CS, ";
+				fullProducts.append("Accounting CS, ");
 			}
 			if (bucketStatus.get(5) == true) {
-				fullProducts = fullProducts + "Practice CS, ";
+				fullProducts.append("Practice CS, ");
 			}
 			if (bucketStatus.get(6) == true) {
-				fullProducts = fullProducts + "Onvio, ";
+				fullProducts.append("Onvio, ");
 			}
 			if (bucketStatus.get(7) == true) {
-				fullProducts = fullProducts + "Web Services, ";
+				fullProducts.append("Web Services, ");
 			}
 			if (bucketStatus.get(8) == true) {
-				fullProducts = fullProducts + "Customer Service, ";
+				fullProducts.append("Customer Service, ");
 			}
-			fullProducts = fullProducts.substring(0, fullProducts.length() - 2) + "\n\n\n"; //removes punctuation from end of string
-	
-			//Creates a MissingProductString object to generate the missing product portion of the text area
+			
+			fullProducts.delete(fullProducts.length() -2, fullProducts.length()-1); //removes punctuation from end of string
+			fullProducts.append("\n\n\n");
+
+			// Creates a MissingProductString object to generate the missing product portion
+			// of the text area
 			MissingProductStringGenerator missingStringGenerator = new MissingProductStringGenerator();
 			String completeMissingString = missingStringGenerator.generateMissingString(employeeData.get(employee));
-			fullProducts = fullProducts + completeMissingString;
+			fullProducts.append(completeMissingString);
 			
 		} catch (Exception e) {
 			// System.out.println(e);
 		}
-		return fullProducts;
+		
+		return fullProducts.toString();
 	}
 	
 	//Updates cbox filter list
