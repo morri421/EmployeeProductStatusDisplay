@@ -25,8 +25,7 @@ public class MissingProductStringGenerator {
 				stringForAllMissingProducts.append(product + ", ");
 			}
 			stringForAllMissingProducts.delete(stringForAllMissingProducts.length() - 2,
-					stringForAllMissingProducts.length() - 1);
-			stringForAllMissingProducts.append("\n");
+					stringForAllMissingProducts.length() - 1).append("\n");
 		}
 		if (employeeRecord.getnullToolsProducts().size() > 0 && employeeRecord.getnullToolsProducts().size() != 2) {
 			List<String> toolsMissingProducts = employeeRecord.getnullToolsProducts();
@@ -35,8 +34,7 @@ public class MissingProductStringGenerator {
 				stringForAllMissingProducts.append(product + ", ");
 			}
 			stringForAllMissingProducts.delete(stringForAllMissingProducts.length() - 2,
-					stringForAllMissingProducts.length() - 1);
-			stringForAllMissingProducts.append("\n");
+					stringForAllMissingProducts.length() - 1).append("\n");
 		}
 		if (employeeRecord.getnullGOSysProducts().size() > 0 && employeeRecord.getnullGOSysProducts().size() != 12) {
 			List<String> gosMissingProducts = employeeRecord.getnullGOSysProducts();
@@ -45,8 +43,7 @@ public class MissingProductStringGenerator {
 				stringForAllMissingProducts.append(product + ", ");
 			}
 			stringForAllMissingProducts.delete(stringForAllMissingProducts.length() - 2,
-					stringForAllMissingProducts.length() - 1);
-			stringForAllMissingProducts.append("\n");
+					stringForAllMissingProducts.length() - 1).append("\n");
 		}
 		if (employeeRecord.getnullDocProducts().size() > 0 && employeeRecord.getnullDocProducts().size() != 3) {
 			List<String> docMissingProduct = employeeRecord.getnullDocProducts();
@@ -55,8 +52,7 @@ public class MissingProductStringGenerator {
 				stringForAllMissingProducts.append(product + ", ");
 			}
 			stringForAllMissingProducts.delete(stringForAllMissingProducts.length() - 2,
-					stringForAllMissingProducts.length() - 1);
-			stringForAllMissingProducts.append("\n");
+					stringForAllMissingProducts.length() - 1).append("\n");
 		}
 		if (employeeRecord.getnullACSProducts().size() > 0 && employeeRecord.getnullACSProducts().size() != 5) {
 			List<String> acsMissingProduct = employeeRecord.getnullACSProducts();
@@ -65,8 +61,7 @@ public class MissingProductStringGenerator {
 				stringForAllMissingProducts.append(product + ", ");
 			}
 			stringForAllMissingProducts.delete(stringForAllMissingProducts.length() - 2,
-					stringForAllMissingProducts.length() - 1);
-			stringForAllMissingProducts.append("\n");
+					stringForAllMissingProducts.length() - 1).append("\n");
 		}
 		if (employeeRecord.getnullPCSProducts().size() > 0 && employeeRecord.getnullPCSProducts().size() != 2) {
 			List<String> pcsMissingProduct = employeeRecord.getnullPCSProducts();
@@ -75,8 +70,7 @@ public class MissingProductStringGenerator {
 				stringForAllMissingProducts.append(product + ", ");
 			}
 			stringForAllMissingProducts.delete(stringForAllMissingProducts.length() - 2,
-					stringForAllMissingProducts.length() - 1);
-			stringForAllMissingProducts.append("\n");
+					stringForAllMissingProducts.length() - 1).append("\n");
 		}
 		if (employeeRecord.getnullOnvioProducts().size() > 0 && employeeRecord.getnullOnvioProducts().size() != 1) {
 			List<String> onvioMissingProduct = employeeRecord.getnullOnvioProducts();
@@ -85,8 +79,7 @@ public class MissingProductStringGenerator {
 				stringForAllMissingProducts.append(product + ", ");
 			}
 			stringForAllMissingProducts.delete(stringForAllMissingProducts.length() - 2,
-					stringForAllMissingProducts.length() - 1);
-			stringForAllMissingProducts.append("\n");
+					stringForAllMissingProducts.length() - 1).append("\n");
 		}
 		if (employeeRecord.getnullWebProducts().size() > 0 && employeeRecord.getnullWebProducts().size() != 3) {
 			List<String> webMissingProduct = employeeRecord.getnullWebProducts();
@@ -95,8 +88,7 @@ public class MissingProductStringGenerator {
 				stringForAllMissingProducts.append(product + ", ");
 			}
 			stringForAllMissingProducts.delete(stringForAllMissingProducts.length() - 2,
-					stringForAllMissingProducts.length() - 1);
-			stringForAllMissingProducts.append("\n");
+					stringForAllMissingProducts.length() - 1).append("\n");
 		}
 		if (employeeRecord.getnullCustProducts().size() > 0 && employeeRecord.getnullCustProducts().size() != 3) {
 			List<String> custMissingProduct = employeeRecord.getnullCustProducts();
@@ -105,8 +97,7 @@ public class MissingProductStringGenerator {
 				stringForAllMissingProducts.append(product + ", ");
 			}
 			stringForAllMissingProducts.delete(stringForAllMissingProducts.length() - 2,
-					stringForAllMissingProducts.length() - 1);
-			stringForAllMissingProducts.append("\n");
+					stringForAllMissingProducts.length() - 1).append("\n");
 		}
 
 		return stringForAllMissingProducts.toString();
