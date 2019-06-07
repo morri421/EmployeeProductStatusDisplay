@@ -49,8 +49,7 @@ public class ListController {
 				fullProducts.append("Customer Service, ");
 			}
 			
-			fullProducts.delete(fullProducts.length() -2, fullProducts.length()-1); //removes punctuation from end of string
-			fullProducts.append("\n\n\n");
+			fullProducts.delete(fullProducts.length() -2, fullProducts.length()-1).append("\n\n\n"); //removes punctuation from end of string
 
 			// Creates a MissingProductString object to generate the missing product portion
 			// of the text area
